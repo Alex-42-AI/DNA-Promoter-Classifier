@@ -73,12 +73,13 @@ results_dir = Path(f"results/case{CASE:03d}")
 
 results_dir.mkdir(parents=True, exist_ok=True)
 
-RESULTS_PATH = results_dir / "results.txt"
-
 METADATA_PATH = results_dir / "metadata.txt"
+
+result = ""
 
 for RUN in range(1, 11):
     SEED = randint(0, 10 ** 6)
+
     seed(SEED)
     manual_seed(SEED)
     cuda.manual_seed(SEED)
@@ -185,7 +186,7 @@ Run {RUN}: seed = {SEED}
     loader_len = len(train_loader)
     best_epoch, best_val, best_state = 0, inf, None
     train_loss, validation_loss, val_accuracy = [], [], []
-    result = f"Run {RUN}:\n"
+    result += f"Run {RUN}:\n"
 
     for epoch in epochs_range:
         print(epoch)
@@ -237,9 +238,6 @@ Run {RUN}: seed = {SEED}
         result += f"test accuracy: {acc.item():.4f}; best epoch: {best_epoch}\n"
         print(acc.item())
 
-    with open(RESULTS_PATH, "a+") as f:
-        f.write(result)
-
     fig, ax1 = plt.subplots(figsize=(10, 6))
 
     ax1.plot(epochs_range, train_loss, label="Train Loss", color="red")
@@ -267,3 +265,6 @@ Run {RUN}: seed = {SEED}
     plt.savefig(plot_path, bbox_inches="tight")
 
     plt.close(fig)
+
+with open(results_dir / "results.txt", "w") as f:
+    f.write(result)
