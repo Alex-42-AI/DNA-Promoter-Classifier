@@ -10,6 +10,8 @@ from numpy import array, transpose
 
 from random import sample, randint, seed
 
+from statistics import stdev, mean, multimode
+
 from sklearn.model_selection import train_test_split
 
 from torch.utils.data import TensorDataset, DataLoader
@@ -49,7 +51,7 @@ mapping = {"A": array([1, 0, 0, 0]),
 
 START, END = 0, 2000
 
-LR = 5e-4
+LR = 15e-5
 
 EPOCHS = 15
 
@@ -65,9 +67,11 @@ LOSS = nn.CrossEntropyLoss
 
 TRAIN, VALIDATE, TEST = 70, 15, 15
 
-CASE = 3
+CASE = 5
 
 EPOCHS_len = len(str(EPOCHS))
+
+epochs_range = range(EPOCHS)
 
 results_dir = Path(f"results/case{CASE:03d}")
 
@@ -75,7 +79,9 @@ results_dir.mkdir(parents=True, exist_ok=True)
 
 METADATA_PATH = results_dir / "metadata.txt"
 
-result = ""
+result, results, best_epochs = "", [], []
+
+positive, negative = load()
 
 for RUN in range(1, 11):
     SEED = randint(0, 10 ** 6)
@@ -120,7 +126,6 @@ for RUN in range(1, 11):
     params = sum(p.numel() for p in model.parameters())
     model.train()
 
-    positive, negative = load()
     positive, negative = sample(positive, POSITIVES), sample(negative, NEGATIVES)
 
     X = array([encode(seq) for seq in positive + negative])
@@ -182,14 +187,12 @@ Run {RUN}: seed = {SEED}
         batch_size=BATCH_SIZE,
         shuffle=True
     )
-    epochs_range = range(EPOCHS)
     loader_len = len(train_loader)
     best_epoch, best_val, best_state = 0, inf, None
     train_loss, validation_loss, val_accuracy = [], [], []
     result += f"Run {RUN}:\n"
 
     for epoch in epochs_range:
-        print(epoch)
         total_loss = 0
 
         model.train()
@@ -236,7 +239,7 @@ Run {RUN}: seed = {SEED}
         preds = argmax(outputs, dim=1)
         acc = (preds == y_test_tensor).float().mean()
         result += f"test accuracy: {acc.item():.4f}; best epoch: {best_epoch}\n"
-        print(acc.item())
+        results.append(acc.item()), best_epochs.append(best_epoch)
 
     fig, ax1 = plt.subplots(figsize=(10, 6))
 
@@ -268,3 +271,15 @@ Run {RUN}: seed = {SEED}
 
 with open(results_dir / "results.txt", "w") as f:
     f.write(result)
+
+with open(results_dir / "statistics.txt", "w") as f:
+    f.write("Best accuracies and epochs:\n")
+
+    for i, r in enumerate(results, 1):
+        f.write(f"Run {i}: accuracy = {r:.4f}; best_epoch = {best_epochs[i - 1]}\n")
+
+    f.write(f"\nAccuracies:\nMin: {min(results):.4f}\nMax: {max(results):.4f}\n")
+    f.write(f"Mean: {mean(results):.4f}\nStdev: {stdev(results):.4f}\n")
+
+    f.write(f"Epochs:\nMin: {min(best_epochs)}\nMax: {max(best_epochs)}\n")
+    f.write(f"Mean: {round(mean(best_epochs), 1)}\nStdev: {stdev(best_epochs):.4f}\nMode: {multimode(best_epochs)}\n")
