@@ -95,7 +95,7 @@ The following hyperparameters are configurable:
 Example results:
 
 * Mean test accuracy: ~0.78
-* Best test accuracy: ~0.81
+* Best test accuracy: ~0.82
 
 Training statistics and plots are automatically saved in the `results/` directory.
 
