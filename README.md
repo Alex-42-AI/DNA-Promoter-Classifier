@@ -123,6 +123,7 @@ pip install -r requirements.txt
 ```
 
 Python 3.10+
+
 For GPU acceleration, install a CUDA-enabled PyTorch build according to the official PyTorch installation instructions, version 12.6.
 
 Run the training script:
