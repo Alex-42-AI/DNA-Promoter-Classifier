@@ -1,0 +1,24 @@
+Best accuracies and epochs:
+Run 1: accuracy = 0.7872; best_epoch = 12
+Run 2: accuracy = 0.7815; best_epoch = 13
+Run 3: accuracy = 0.7697; best_epoch = 14
+Run 4: accuracy = 0.7855; best_epoch = 13
+Run 5: accuracy = 0.7905; best_epoch = 14
+Run 6: accuracy = 0.7736; best_epoch = 14
+Run 7: accuracy = 0.7860; best_epoch = 14
+Run 8: accuracy = 0.7810; best_epoch = 13
+Run 9: accuracy = 0.7759; best_epoch = 12
+Run 10: accuracy = 0.7725; best_epoch = 14
+
+Accuracies:
+Min: 0.7697
+Max: 0.7905
+Mean: 0.7803
+Stdev: 0.0071
+
+Epochs:
+Min: 12
+Max: 14
+Mean: 13.3
+Stdev: 0.8233
+Mode: [14]
