@@ -92,8 +92,8 @@ The following hyperparameters are configurable:
 
 Example results:
 
-* Mean test accuracy: ~0.78
-* Best test accuracy: ~0.82
+* Mean test accuracy: ~0.8
+* Best test accuracy: ~0.85
 
 Training statistics and plots are automatically saved in the `results/` directory.
 
@@ -121,6 +121,9 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+Python 3.10+
+For GPU acceleration, install a CUDA-enabled PyTorch build according to the official PyTorch installation instructions, version 12.6.
 
 Run the training script:
 
