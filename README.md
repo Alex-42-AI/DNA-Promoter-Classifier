@@ -24,7 +24,6 @@ Each sequence:
   * C (cytosine)
   * G (guanine)
   * T (thymine)
-  * N (unknown)
 
 Each line in the dataset has the format:
 
@@ -47,7 +46,6 @@ DNA sequences are converted into numerical form using one-hot encoding:
 | C          | [0, 1, 0, 0] |
 | G          | [0, 0, 1, 0] |
 | T          | [0, 0, 0, 1] |
-| N          | [0, 0, 0, 0] |
 
 The encoded sequences are then processed by the neural network.
 
