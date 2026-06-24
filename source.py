@@ -41,23 +41,23 @@ def load():
 
 
 def encode(sequence):
-    return array([mapping[x] if x in mapping else array([0, 0, 0, 0]) for x in sequence])
+    return array([one_hot[x] for x in sequence])
 
 
-mapping = {"A": array([1, 0, 0, 0]),
+one_hot = {"A": array([1, 0, 0, 0]),
            "C": array([0, 1, 0, 0]),
            "G": array([0, 0, 1, 0]),
            "T": array([0, 0, 0, 1])}
 
 START, END = 0, 2000
 
-LR = 15e-5
+LR, WEIGHT_DECAY = 1e-3, 1e-4
 
 EPOCHS = 15
 
-CHANNELS_1, CHANNELS_2, CHANNELS_3, CHANNELS_4, FC_SIZE = 8, 16, 32, 64, 128
+CHANNELS_1, CHANNELS_2, CHANNELS_3, CHANNELS_4, FC_SIZE = 8, 16, 32, 64, 64
 
-KER_SIZE, BATCH_SIZE = 15, 32
+KER_SIZE, BATCH_SIZE = 21, 32
 
 POSITIVES, NEGATIVES = 5920, 5920
 
@@ -67,7 +67,7 @@ LOSS = nn.CrossEntropyLoss
 
 TRAIN, VALIDATE, TEST = 70, 15, 15
 
-CASE = 5
+CASE = 23
 
 EPOCHS_len = len(str(EPOCHS))
 
@@ -75,13 +75,13 @@ epochs_range = range(EPOCHS)
 
 results_dir = Path(f"results/case{CASE:03d}")
 
-results_dir.mkdir(parents=True, exist_ok=True)
+results_dir.mkdir(parents=True)
 
 METADATA_PATH = results_dir / "metadata.txt"
 
 result, results, best_epochs = "", [], []
 
-positive, negative = load()
+_positive, _negative = load()
 
 for RUN in range(1, 11):
     SEED = randint(0, 10 ** 6)
@@ -110,7 +110,7 @@ for RUN in range(1, 11):
         nn.Conv1d(CHANNELS_3, CHANNELS_4, kernel_size=KER_SIZE),
         nn.BatchNorm1d(CHANNELS_4),
         nn.ReLU(),
-        nn.Dropout(0.3),
+        nn.Dropout(0.4),
         nn.AdaptiveMaxPool1d(1),
 
         nn.Flatten(),
@@ -126,7 +126,7 @@ for RUN in range(1, 11):
     params = sum(p.numel() for p in model.parameters())
     model.train()
 
-    positive, negative = sample(positive, POSITIVES), sample(negative, NEGATIVES)
+    positive, negative = sample(_positive, POSITIVES), sample(_negative, NEGATIVES)
 
     X = array([encode(seq) for seq in positive + negative])
     X = transpose(X, (0, 2, 1))
@@ -134,14 +134,14 @@ for RUN in range(1, 11):
     y = array([1] * POSITIVES + [0] * NEGATIVES)
     X_train, X_temp, y_train, y_temp = train_test_split(
         X, y,
-        test_size=(VALIDATE + TEST) / 100,
+        test_size=(VALIDATE + TEST) / (TRAIN + TEST + VALIDATE),
         stratify=y,
         random_state=42
     )
 
     X_val, X_test, y_val, y_test = train_test_split(
         X_temp, y_temp,
-        test_size=TEST / (100 - TRAIN),
+        test_size=TEST / (VALIDATE + TEST),
         stratify=y_temp,
         random_state=42
     )
@@ -156,14 +156,15 @@ for RUN in range(1, 11):
     y_test_tensor = tensor(y_test, dtype=long).to(device)
 
     criterion = LOSS()
-    optimizer = OPTIMIZER(model.parameters(), lr=LR)
+    optimizer = OPTIMIZER(model.parameters(), lr=LR, weight_decay=WEIGHT_DECAY)
 
     if RUN > 1:
         with open(METADATA_PATH, "a") as f:
             f.write(f"Run {RUN}: seed = {SEED}\n")
 
     else:
-        metadata = f"""device = {device}
+        with open(METADATA_PATH, "w") as f:
+            f.write(f"""device = {device}
 positives = {POSITIVES}
 negatives = {NEGATIVES}
 sequence[{START}:{END}]
@@ -175,11 +176,9 @@ batch_size = {BATCH_SIZE}
 epochs = {EPOCHS}
 loss = {LOSS.__name__}
 optimizer = {OPTIMIZER.__name__}
-Run {RUN}: seed = {SEED}
-"""
-
-        with open(METADATA_PATH, "w") as f:
-            f.write(metadata)
+weight decay = {WEIGHT_DECAY}
+Run 1: seed = {SEED}
+""")
 
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
     train_loader = DataLoader(
@@ -263,7 +262,7 @@ Run {RUN}: seed = {SEED}
 
     ax1.legend(lines1 + lines2, labels1 + labels2, loc="center left")
 
-    plot_path = f"results/case{CASE:03d}/test_run{RUN:03d}.png"
+    plot_path = results_dir / f"test_run{RUN:03d}.png"
 
     plt.savefig(plot_path, bbox_inches="tight")
 
@@ -281,5 +280,5 @@ with open(results_dir / "statistics.txt", "w") as f:
     f.write(f"\nAccuracies:\nMin: {min(results):.4f}\nMax: {max(results):.4f}\n")
     f.write(f"Mean: {mean(results):.4f}\nStdev: {stdev(results):.4f}\n")
 
-    f.write(f"Epochs:\nMin: {min(best_epochs)}\nMax: {max(best_epochs)}\n")
+    f.write(f"\nEpochs:\nMin: {min(best_epochs)}\nMax: {max(best_epochs)}\n")
     f.write(f"Mean: {round(mean(best_epochs), 1)}\nStdev: {stdev(best_epochs):.4f}\nMode: {multimode(best_epochs)}\n")
