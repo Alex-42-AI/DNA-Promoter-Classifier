@@ -1,0 +1,170 @@
+Run 1:
+00; train_loss = 0.5400; val_loss = 0.4584; val_acc = 0.7810
+01; train_loss = 0.4392; val_loss = 0.4540; val_acc = 0.7691
+02; train_loss = 0.4000; val_loss = 0.4156; val_acc = 0.8086
+03; train_loss = 0.3780; val_loss = 0.4540; val_acc = 0.7860
+04; train_loss = 0.3349; val_loss = 0.4035; val_acc = 0.8091
+05; train_loss = 0.3116; val_loss = 0.4077; val_acc = 0.8080
+06; train_loss = 0.2978; val_loss = 0.4383; val_acc = 0.7922
+07; train_loss = 0.2651; val_loss = 0.4211; val_acc = 0.7995
+08; train_loss = 0.2320; val_loss = 0.5660; val_acc = 0.7303
+09; train_loss = 0.2231; val_loss = 0.4387; val_acc = 0.8148
+10; train_loss = 0.1679; val_loss = 0.4362; val_acc = 0.8069
+11; train_loss = 0.1456; val_loss = 0.4215; val_acc = 0.8181
+12; train_loss = 0.1283; val_loss = 0.4533; val_acc = 0.8271
+13; train_loss = 0.1098; val_loss = 0.4868; val_acc = 0.8255
+14; train_loss = 0.0801; val_loss = 0.5707; val_acc = 0.7950
+test accuracy: 0.8074; best epoch: 4
+Run 2:
+00; train_loss = 0.5749; val_loss = 0.4840; val_acc = 0.7725
+01; train_loss = 0.4398; val_loss = 0.4784; val_acc = 0.7489
+02; train_loss = 0.4127; val_loss = 0.4231; val_acc = 0.8170
+03; train_loss = 0.3855; val_loss = 0.4299; val_acc = 0.7962
+04; train_loss = 0.3519; val_loss = 0.4253; val_acc = 0.8024
+05; train_loss = 0.3291; val_loss = 0.4296; val_acc = 0.7866
+06; train_loss = 0.2911; val_loss = 0.3976; val_acc = 0.8125
+07; train_loss = 0.2638; val_loss = 0.4130; val_acc = 0.8069
+08; train_loss = 0.2386; val_loss = 0.4439; val_acc = 0.7770
+09; train_loss = 0.2098; val_loss = 0.3950; val_acc = 0.8086
+10; train_loss = 0.1727; val_loss = 0.3986; val_acc = 0.8238
+11; train_loss = 0.1574; val_loss = 0.4519; val_acc = 0.8012
+12; train_loss = 0.1166; val_loss = 0.4290; val_acc = 0.8164
+13; train_loss = 0.0798; val_loss = 0.4650; val_acc = 0.8114
+14; train_loss = 0.1118; val_loss = 0.4565; val_acc = 0.8142
+test accuracy: 0.8119; best epoch: 9
+Run 3:
+00; train_loss = 0.5435; val_loss = 0.4688; val_acc = 0.7686
+01; train_loss = 0.4520; val_loss = 0.4319; val_acc = 0.8052
+02; train_loss = 0.4148; val_loss = 0.4416; val_acc = 0.7905
+03; train_loss = 0.4015; val_loss = 0.4180; val_acc = 0.8074
+04; train_loss = 0.3757; val_loss = 0.3920; val_acc = 0.8215
+05; train_loss = 0.3474; val_loss = 0.3918; val_acc = 0.8063
+06; train_loss = 0.3240; val_loss = 0.3998; val_acc = 0.8080
+07; train_loss = 0.2858; val_loss = 0.3838; val_acc = 0.8024
+08; train_loss = 0.2655; val_loss = 0.4284; val_acc = 0.7984
+09; train_loss = 0.2453; val_loss = 0.3758; val_acc = 0.8170
+10; train_loss = 0.2010; val_loss = 0.4036; val_acc = 0.8153
+11; train_loss = 0.1779; val_loss = 0.4066; val_acc = 0.8148
+12; train_loss = 0.1560; val_loss = 0.4046; val_acc = 0.8159
+13; train_loss = 0.1205; val_loss = 0.4317; val_acc = 0.8193
+14; train_loss = 0.0979; val_loss = 0.4563; val_acc = 0.8260
+test accuracy: 0.8260; best epoch: 9
+Run 4:
+00; train_loss = 0.5510; val_loss = 0.5064; val_acc = 0.7370
+01; train_loss = 0.4494; val_loss = 0.4480; val_acc = 0.7720
+02; train_loss = 0.4318; val_loss = 0.4367; val_acc = 0.7725
+03; train_loss = 0.3923; val_loss = 0.4253; val_acc = 0.7956
+04; train_loss = 0.3607; val_loss = 0.4676; val_acc = 0.7618
+05; train_loss = 0.3474; val_loss = 0.4435; val_acc = 0.7697
+06; train_loss = 0.3103; val_loss = 0.4045; val_acc = 0.7979
+07; train_loss = 0.2827; val_loss = 0.4301; val_acc = 0.7827
+08; train_loss = 0.2634; val_loss = 0.4348; val_acc = 0.7815
+09; train_loss = 0.2110; val_loss = 0.4504; val_acc = 0.7900
+10; train_loss = 0.1800; val_loss = 0.4518; val_acc = 0.8001
+11; train_loss = 0.1479; val_loss = 0.4451; val_acc = 0.7922
+12; train_loss = 0.1197; val_loss = 0.5342; val_acc = 0.7990
+13; train_loss = 0.0973; val_loss = 0.5428; val_acc = 0.7748
+14; train_loss = 0.0790; val_loss = 0.5714; val_acc = 0.7866
+test accuracy: 0.8102; best epoch: 6
+Run 5:
+00; train_loss = 0.5575; val_loss = 0.4628; val_acc = 0.7990
+01; train_loss = 0.4738; val_loss = 0.4527; val_acc = 0.7939
+02; train_loss = 0.4390; val_loss = 0.4231; val_acc = 0.8086
+03; train_loss = 0.4117; val_loss = 0.4155; val_acc = 0.8029
+04; train_loss = 0.3882; val_loss = 0.4061; val_acc = 0.8086
+05; train_loss = 0.3652; val_loss = 0.3968; val_acc = 0.8136
+06; train_loss = 0.3406; val_loss = 0.3878; val_acc = 0.8153
+07; train_loss = 0.3112; val_loss = 0.4017; val_acc = 0.8057
+08; train_loss = 0.2852; val_loss = 0.3991; val_acc = 0.8035
+09; train_loss = 0.2491; val_loss = 0.4089; val_acc = 0.8018
+10; train_loss = 0.2396; val_loss = 0.4010; val_acc = 0.8170
+11; train_loss = 0.1993; val_loss = 0.4544; val_acc = 0.8007
+12; train_loss = 0.1533; val_loss = 0.4425; val_acc = 0.7984
+13; train_loss = 0.1389; val_loss = 0.4471; val_acc = 0.8097
+14; train_loss = 0.1197; val_loss = 0.4658; val_acc = 0.7990
+test accuracy: 0.8316; best epoch: 6
+Run 6:
+00; train_loss = 0.5459; val_loss = 0.4839; val_acc = 0.7573
+01; train_loss = 0.4532; val_loss = 0.4126; val_acc = 0.8057
+02; train_loss = 0.4136; val_loss = 0.4209; val_acc = 0.8052
+03; train_loss = 0.3896; val_loss = 0.4076; val_acc = 0.8091
+04; train_loss = 0.3704; val_loss = 0.3986; val_acc = 0.8091
+05; train_loss = 0.3405; val_loss = 0.3834; val_acc = 0.8232
+06; train_loss = 0.3242; val_loss = 0.4012; val_acc = 0.7922
+07; train_loss = 0.2910; val_loss = 0.3892; val_acc = 0.8102
+08; train_loss = 0.2546; val_loss = 0.3748; val_acc = 0.8226
+09; train_loss = 0.2303; val_loss = 0.5186; val_acc = 0.7686
+10; train_loss = 0.2074; val_loss = 0.4081; val_acc = 0.8187
+11; train_loss = 0.1578; val_loss = 0.4093; val_acc = 0.8102
+12; train_loss = 0.1289; val_loss = 0.4584; val_acc = 0.7962
+13; train_loss = 0.1246; val_loss = 0.4187; val_acc = 0.8305
+14; train_loss = 0.1017; val_loss = 0.4068; val_acc = 0.8159
+test accuracy: 0.8018; best epoch: 8
+Run 7:
+00; train_loss = 0.5341; val_loss = 0.4747; val_acc = 0.7680
+01; train_loss = 0.4494; val_loss = 0.4469; val_acc = 0.7900
+02; train_loss = 0.4251; val_loss = 0.4308; val_acc = 0.8029
+03; train_loss = 0.3902; val_loss = 0.4150; val_acc = 0.8187
+04; train_loss = 0.3645; val_loss = 0.4285; val_acc = 0.8142
+05; train_loss = 0.3264; val_loss = 0.4077; val_acc = 0.8136
+06; train_loss = 0.3088; val_loss = 0.6143; val_acc = 0.6864
+07; train_loss = 0.2636; val_loss = 0.4355; val_acc = 0.7928
+08; train_loss = 0.2272; val_loss = 0.4016; val_acc = 0.8097
+09; train_loss = 0.2139; val_loss = 0.4228; val_acc = 0.7979
+10; train_loss = 0.1587; val_loss = 0.4763; val_acc = 0.7928
+11; train_loss = 0.1311; val_loss = 0.4824; val_acc = 0.7934
+12; train_loss = 0.0976; val_loss = 0.5091; val_acc = 0.8069
+13; train_loss = 0.1028; val_loss = 0.7189; val_acc = 0.7596
+14; train_loss = 0.0776; val_loss = 0.5330; val_acc = 0.8018
+test accuracy: 0.8148; best epoch: 8
+Run 8:
+00; train_loss = 0.5345; val_loss = 0.4570; val_acc = 0.7945
+01; train_loss = 0.4528; val_loss = 0.4329; val_acc = 0.7928
+02; train_loss = 0.4205; val_loss = 0.4156; val_acc = 0.8102
+03; train_loss = 0.3965; val_loss = 0.4160; val_acc = 0.8136
+04; train_loss = 0.3653; val_loss = 0.3843; val_acc = 0.8322
+05; train_loss = 0.3478; val_loss = 0.4077; val_acc = 0.7967
+06; train_loss = 0.3225; val_loss = 0.3835; val_acc = 0.8108
+07; train_loss = 0.2886; val_loss = 0.3712; val_acc = 0.8226
+08; train_loss = 0.2628; val_loss = 0.3794; val_acc = 0.8159
+09; train_loss = 0.2262; val_loss = 0.4860; val_acc = 0.7658
+10; train_loss = 0.1951; val_loss = 0.3945; val_acc = 0.8215
+11; train_loss = 0.1782; val_loss = 0.3903; val_acc = 0.8102
+12; train_loss = 0.1451; val_loss = 0.3991; val_acc = 0.8193
+13; train_loss = 0.1099; val_loss = 0.4422; val_acc = 0.8148
+14; train_loss = 0.0972; val_loss = 0.4671; val_acc = 0.8119
+test accuracy: 0.8226; best epoch: 7
+Run 9:
+00; train_loss = 0.5318; val_loss = 0.4963; val_acc = 0.7658
+01; train_loss = 0.4604; val_loss = 0.5113; val_acc = 0.7365
+02; train_loss = 0.4198; val_loss = 0.4271; val_acc = 0.7900
+03; train_loss = 0.3799; val_loss = 0.4825; val_acc = 0.7562
+04; train_loss = 0.3586; val_loss = 0.3791; val_acc = 0.8238
+05; train_loss = 0.3213; val_loss = 0.4004; val_acc = 0.7962
+06; train_loss = 0.2994; val_loss = 0.3944; val_acc = 0.8080
+07; train_loss = 0.2749; val_loss = 0.3824; val_acc = 0.8187
+08; train_loss = 0.2454; val_loss = 0.3891; val_acc = 0.8159
+09; train_loss = 0.2141; val_loss = 0.4464; val_acc = 0.7922
+10; train_loss = 0.1796; val_loss = 0.3814; val_acc = 0.8311
+11; train_loss = 0.1482; val_loss = 0.4398; val_acc = 0.8193
+12; train_loss = 0.1306; val_loss = 0.4503; val_acc = 0.8193
+13; train_loss = 0.0877; val_loss = 0.5939; val_acc = 0.8001
+14; train_loss = 0.0796; val_loss = 0.4803; val_acc = 0.8305
+test accuracy: 0.8136; best epoch: 4
+Run 10:
+00; train_loss = 0.5628; val_loss = 0.5094; val_acc = 0.7387
+01; train_loss = 0.4579; val_loss = 0.4326; val_acc = 0.7995
+02; train_loss = 0.4122; val_loss = 0.3976; val_acc = 0.8136
+03; train_loss = 0.3865; val_loss = 0.4086; val_acc = 0.8187
+04; train_loss = 0.3516; val_loss = 0.4104; val_acc = 0.7900
+05; train_loss = 0.3316; val_loss = 0.3637; val_acc = 0.8328
+06; train_loss = 0.3043; val_loss = 0.3767; val_acc = 0.8266
+07; train_loss = 0.2742; val_loss = 0.4558; val_acc = 0.7810
+08; train_loss = 0.2470; val_loss = 0.3549; val_acc = 0.8390
+09; train_loss = 0.2204; val_loss = 0.4047; val_acc = 0.8052
+10; train_loss = 0.2110; val_loss = 0.3659; val_acc = 0.8328
+11; train_loss = 0.1673; val_loss = 0.4170; val_acc = 0.8193
+12; train_loss = 0.1367; val_loss = 0.4348; val_acc = 0.8102
+13; train_loss = 0.1071; val_loss = 0.4416; val_acc = 0.8221
+14; train_loss = 0.0895; val_loss = 0.4370; val_acc = 0.8232
+test accuracy: 0.8350; best epoch: 8
